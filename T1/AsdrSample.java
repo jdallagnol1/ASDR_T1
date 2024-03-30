@@ -63,6 +63,7 @@ public class AsdrSample {
          ListaDecl();
       } else {
          // vazio
+         if (debug) System.out.println("ListaDecl --> Vazio");
       }
   }
 
@@ -81,6 +82,7 @@ public class AsdrSample {
          verifica('}');
       } else {
          // vazio
+         if (debug) System.out.println("DeclFunc -> Vazio");
       }
   }
 
@@ -92,6 +94,7 @@ public class AsdrSample {
          verifica(';');
       } else {
          // vazio 
+         if (debug) System.out.println("DeclVar -> Vazio");
       }
   }
 
@@ -108,6 +111,7 @@ public class AsdrSample {
       ListaIdent();
    } else {
       // vazio
+      if (debug) System.out.println("RestoListaIdent -> Vazio");
    }
 }
 
@@ -141,6 +145,7 @@ public class AsdrSample {
          ParamList();
       } else {
          // vazio
+         if (debug) System.out.println("FormalPar -> Vazio");
       }
   }
 
@@ -158,21 +163,23 @@ public class AsdrSample {
          ParamList();
       } else {
          // vazio
+         if (debug) System.out.println("RestoParamList -> Vazio");
       }
   }
 
   private void ListaCmd() {
       if ( (laToken == '{') || (laToken == WHILE) || (laToken == IDENT) || (laToken == IF) ) {
-         if (debug) System.out.println("ListaCmd --> Cmd ListaCmd\n");
+         if (debug) System.out.println("ListaCmd --> Cmd ListaCmd");
          Cmd();
          ListaCmd();
       } else {
          // vazio
+         if (debug) System.out.println("ListaCmd --> Vazio");
       }
   }
 
   private void Bloco() {
-      if (debug) System.out.println("Bloco --> { ListaCmd }\n");
+      if (debug) System.out.println("Bloco --> { ListaCmd }");
       verifica('{');
       Cmd();
       verifica('}');
@@ -183,20 +190,20 @@ public class AsdrSample {
          if (debug) System.out.println("Cmd --> Bloco\n");
          Bloco();
       } else if (laToken == WHILE) {
-         if (debug) System.out.println("Cmd --> while ( E ) Cmd\n");
+         if (debug) System.out.println("Cmd --> while ( E ) Cmd");
          verifica(WHILE);
          verifica('(');
          E();
          verifica(')');
          Cmd();
       } else if (laToken == IDENT) {
-         if (debug) System.out.println("Cmd --> IDENT = E ;\n");
+         if (debug) System.out.println("Cmd --> IDENT = E ;");
          verifica(IDENT);
          verifica('=');
          E();
          verifica(';');
       } else if (laToken == IF) {
-         if (debug) System.out.println("Cmd --> if ( E ) Cmd RestoIf\n");
+         if (debug) System.out.println("Cmd --> if ( E ) Cmd RestoIf");
          verifica(IF);
          verifica('(');
          E();
@@ -210,67 +217,70 @@ public class AsdrSample {
 
   private void RestoIf() {
       if (laToken == ELSE) {
-         if (debug) System.out.println("RestoIf -> else Cmd\n");
+         if (debug) System.out.println("RestoIf -> else Cmd");
          verifica(ELSE);
          Cmd();
       } else {
          // vazio
+         if (debug) System.out.println("RestoIf -> Vazio");
       }
    }
 
   private void E() {
-      if (debug) System.out.println("E -> T RestoE\n");
+      if (debug) System.out.println("E -> T RestoE");
       T();
       RestoE();
   }
 
   private void RestoE() {
       if (laToken == '+') {
-         if (debug) System.out.println("RestoE -> + T RestoE\n");
+         if (debug) System.out.println("RestoE -> + T RestoE");
          verifica('+');
          T();
          RestoE();
       } else if (laToken == '-') {
-         if (debug) System.out.println("RestoE -> - T RestoE\n");
+         if (debug) System.out.println("RestoE -> - T RestoE");
          verifica('-');
          T();
          RestoE();
       } else {
          // vazio
+         if (debug) System.out.println("RestoE -> Vazio");
       }
   }
 
   private void T() {
-      if (debug) System.out.println("T -> F RestoT\n");
+      if (debug) System.out.println("T -> F RestoT");
       F();
       RestoT();
   }
 
   private void RestoT() {
       if (laToken == '*') {
-         if (debug) System.out.println("RestoT -> * F RestoT\n");
+         if (debug) System.out.println("RestoT -> * F RestoT");
          verifica('*');
          F();
          RestoT();
       } else if (laToken == '/') {
-         if (debug) System.out.println("RestoT -> / F RestoT\n");
+         if (debug) System.out.println("RestoT -> / F RestoT");
          verifica('/');
          F();
          RestoT();
       } else {
          // vazio
+         if (debug) System.out.println("RestoT -> Vazio");
       }
   }
 
   private void F() {
       if (laToken == IDENT) {
-         if (debug) System.out.println("F -> IDENT\n");
+         if (debug) System.out.println("F -> IDENT");
          verifica(IDENT);
       } else if (laToken == NUM) {
-         if (debug) System.out.println("F -> NUM\n");
+         if (debug) System.out.println("F -> NUM");
          verifica(NUM);
       } else if (laToken == '(') {
-         if (debug) System.out.println("F -> ( E )\n");
+         if (debug) System.out.println("F -> ( E )");
          verifica('(');
          E();
          verifica(')');
