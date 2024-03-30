@@ -2,8 +2,7 @@ int i,j;
 
 func int foo(int i, int j) {
     double res;
-    res = fat(i) / (fat(i-j));
-    
+
 }
 
 int i, j;
@@ -12,7 +11,7 @@ func void main() {
     boolean ok;
 
 
-    res = fat(ok, i);
+    
 }
 
 func double fat(int n) {

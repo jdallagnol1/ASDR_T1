@@ -181,7 +181,7 @@ public class AsdrSample {
   private void Bloco() {
       if (debug) System.out.println("Bloco --> { ListaCmd }");
       verifica('{');
-      Cmd();
+      ListaCmd();
       verifica('}');
    }
 
