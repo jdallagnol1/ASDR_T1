@@ -1,0 +1,10 @@
+double res;
+boolean goToNext;
+
+func void main() {
+    res = n * res;
+    if ( goToNext ) {
+        res = res + 1;
+    }
+}
+

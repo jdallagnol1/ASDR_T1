@@ -1,0 +1,6 @@
+func boolean variosParenteses() {
+    if ( ( ( ( x) ) ) ) {
+        y = x / 3;
+        z = y * 4;
+    }
+}

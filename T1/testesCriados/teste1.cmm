@@ -1,0 +1,4 @@
+
+    double x, y;
+    int i,j,k;
+    boolean value;

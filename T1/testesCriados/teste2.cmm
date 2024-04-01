@@ -1,0 +1,8 @@
+func void foo(double x, int y, boolean value) {
+    boleano = value;
+    z = x + y;
+    res = z;
+    while ( n ) {
+        res = res + 1;
+    }
+}

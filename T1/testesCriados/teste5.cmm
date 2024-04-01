@@ -1,0 +1,25 @@
+
+
+func void foo(double value) {
+    double res;
+    while ( value ) {
+        if ( x ) {
+            value = 10 + 3;
+        } else {
+            value = 10 - 3;
+        }
+    }
+
+    if ( y ) {
+        res = 10 + 3;
+        res = res / 4;
+        res = res * 3;
+        if ( z ) {
+            res = 0;
+        } else {
+            res = 1;
+        }
+    } else {
+        res = value;
+    }
+}
